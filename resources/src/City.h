@@ -1,16 +1,17 @@
-//
-// Created by alexd on 4/10/2025.
-//
+#pragma once
+#include <iostream>
+#include <vector>
+#include <string>
 
-#ifndef CITY_H
-#define CITY_H
+using namespace std;
+class City{
+private:
+    string city_name;
+    string country;
+    double population;
+    double latitude;
 
-
-
-class City {
-
+public:
+    City(string city_name, string country, double population, double latitude);
+    vector <City> getInfo(const string& filename);
 };
-
-
-
-#endif //CITY_H
