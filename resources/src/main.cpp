@@ -1,25 +1,33 @@
 #include <iostream>
-
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+#include <vector>
+#include "City.h"
+using namespace std;
 int main() {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the
-    // <b>lang</b> variable name to see how CLion can help you rename it.
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
+    vector<City> cities = City::getInfo("worldcities.csv");
+    //getting user input for choice of country
+    string country;
+    cout<<"Enter country of choice"<<endl;
+    getline(cin, country);
 
-    for (int i = 1; i <= 5; i++) {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code.
-        // We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/>
-        // breakpoint for you, but you can always add more by pressing
-        // <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
+    //getting user input for choice of city
+    string city_name;
+    if(!country.empty()) {
+        cout<<"Enter preferable city in chosen country"<<endl;
+        getline(cin, city_name);
     }
+
+    //getting user input for population preference
+    int population_preference;
+    cout<<"Enter population preference from a scale of 1-5: 1 being least populous and 5 being most populous"<<endl;
+    cin>>population_preference;
+
+    //getting user input for weather preference
+    int weather_preference;
+    cout<<"Enter weather preference from scale of 1-5: 1 being coldest and 5 being warmest"<<endl;
+    cin>>weather_preference;
+
+
 
     return 0;
 }
 
-// TIP See CLion help at <a
-// href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>.
-//  Also, you can try interactive lessons for CLion by selecting
-//  'Help | Learn IDE Features' from the main menu.

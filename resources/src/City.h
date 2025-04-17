@@ -14,5 +14,5 @@ private:
 
 public:
     City(string city_name, string country, double population, double latitude, int id_num);
-    vector <City> getInfo(const string& filename);
+    static vector <City> getInfo(const string& filename);
 };

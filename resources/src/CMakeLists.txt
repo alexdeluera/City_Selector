@@ -1,11 +1,11 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.22)
 project(src)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 14)
 
 add_executable(src main.cpp
-        City.cpp
         City.h
+        City.cpp
         Parser.cpp
         Parser.h
         MaxHeap.cpp
