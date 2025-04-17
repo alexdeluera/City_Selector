@@ -3,3 +3,17 @@
 //
 
 #include "MaxHeap.h"
+
+MaxHeap::MaxHeap() {
+    this->heap = {};
+}
+
+MaxHeap::MaxHeap(vector<City> &cities) {
+    this->heap = {};
+    this->heap.resize((cities.size()));
+
+    for (int i = 0; i < cities.size(); i++) {
+        heap[i] = cities[i].;
+    }
+}
+

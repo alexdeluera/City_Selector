@@ -5,12 +5,13 @@
 
 using namespace std;
 
-City::City(string city_name, string country, double population, double latitude) {
+City::City(string city_name, string country, double population, double latitude, int id_num) {
     //constructor for the class City
     this->city_name = city_name;
     this->country = country;
     this->population = population;
     this->latitude = latitude;
+    this->id_num = id_num;
 }
 
 vector<City> City::getInfo(const string& filename) {
@@ -43,6 +44,7 @@ vector<City> City::getInfo(const string& filename) {
         }
 
         double population, latitude = 0.0;
+        int id_num = 0;
 
         stringstream populationDouble(string_population);
         populationDouble>>population;
@@ -50,7 +52,10 @@ vector<City> City::getInfo(const string& filename) {
         stringstream latitudeDouble(latitude_str);
         latitudeDouble>>latitude;
 
-        city_info.emplace_back(city_name, country, population, latitude);
+        stringstream id_integer(id);
+        id_integer>>id_num;
+
+        city_info.emplace_back(city_name, country, population, latitude, id_num);
 
     }
     return city_info;

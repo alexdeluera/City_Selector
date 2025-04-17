@@ -10,8 +10,9 @@ private:
     string country;
     double population;
     double latitude;
+    int id_num;
 
 public:
-    City(string city_name, string country, double population, double latitude);
+    City(string city_name, string country, double population, double latitude, int id_num);
     vector <City> getInfo(const string& filename);
 };
