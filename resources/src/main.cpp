@@ -31,6 +31,10 @@ int main() {
 
     vector<City> cities = City::getInfo("../../../worldcities.csv");
 
+    cout<<endl << cities[0].get_latitude()<<endl;
+    cout<<cities[0].get_city_name()<<endl;
+    cout<<cities[0].get_pop()<<endl <<endl;
+
     cout<<cities.size()<<endl;
     cout<<cities[1].get_pop()<<endl;
 
@@ -58,8 +62,6 @@ int main() {
     cout << "Bin 5 (largest population) cutoff: " << bin5_cutoff << endl;
 
     cout<<"Bin Size: "<<bin_size<<endl;
-
-    //cout<<cities.size()<<endl;
 
     return 0;
 }

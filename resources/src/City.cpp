@@ -49,6 +49,14 @@ double City::get_pop() {
     return this->population;
 }
 
+double City::get_latitude() {
+    return this->latitude;
+}
+
+string City::get_city_name() {
+    return this->city_name;
+}
+
 vector<City> City::getInfo(const string& filename) {
     //function to get information from open source csv file
     vector<City> city_info;
@@ -90,11 +98,13 @@ vector<City> City::getInfo(const string& filename) {
             population = stoi(string_population);
         }
 
-        //please implement a similar fix to the latitude values to clean the strings
+        //a similar fix to the latitude values to clean the strings
         stringstream latitudeDouble(latitude_str);
-        latitudeDouble>>latitude;
+        latitude_str = latitude_str.substr(1,latitude_str.length()-2);
+        latitude = abs(stod(latitude_str));
 
-        //city_info.match_city(country_pref, pop_pref, lat_pref);
+
+             //city_info.match_city(country_pref, pop_pref, lat_pref);
 
         city_info.emplace_back(city_name, country, population, latitude);
 
