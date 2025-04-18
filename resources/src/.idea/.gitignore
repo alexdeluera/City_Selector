@@ -14,5 +14,3 @@ cmake-build-debug/*
 *.iml
 *.xml
 /resources/src/cmake-build-debug/
-resources/.idea/
-editor.xml
