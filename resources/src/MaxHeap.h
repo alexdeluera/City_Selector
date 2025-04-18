@@ -5,17 +5,19 @@
 #ifndef MAXHEAP_H
 #define MAXHEAP_H
 #include <queue>
+#include <vector>
+#include <utility>
 #include "City.h"
 using namespace std;
 
 class MaxHeap {
-    vector<pair<int, int>> heap;
-    void calc_match(vector<City>& cities);
-    void heapify();
-
-public:
-    MaxHeap();
-    MaxHeap(vector<City>& cities);
+//     vector<pair<int, City>> heap;
+//     void calc_match(vector<City>& cities);
+//     void heapify();
+//
+// public:
+//     MaxHeap();
+//     MaxHeap(vector<City>& cities);
 };
 
 
