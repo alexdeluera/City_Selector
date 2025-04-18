@@ -41,7 +41,6 @@ int main() {
     size_t n = cities.size();
     size_t bin_size = n/5;
 
-
     double bin1_cutoff = cities[bin_size - 1].get_pop();
     cout << "Bin 1 (smallest population) cutoff: " << bin1_cutoff << endl;
 
@@ -58,7 +57,7 @@ int main() {
     double bin5_cutoff = cities[n - 1].get_pop();
     cout << "Bin 5 (largest population) cutoff: " << bin5_cutoff << endl;
 
-    cout<<bin_size<<endl;
+    cout<<"Bin Size: "<<bin_size<<endl;
 
     //cout<<cities.size()<<endl;
 

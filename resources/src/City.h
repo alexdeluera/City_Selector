@@ -8,12 +8,12 @@ class City{
 private:
     string city_name;
     string country;
-    double population;
+    int population;
     double latitude;
     float city_match = 0.0;
 
 public:
-    City(string city_name, string country, double population, double latitude);
+    City(string city_name, string country, int population, double latitude);
     void match_city(string& country_pref, int pop_pref, int lat_pref);
     float get_city_match();
     double get_pop();

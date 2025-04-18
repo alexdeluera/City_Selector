@@ -7,7 +7,7 @@
 
 using namespace std;
 
-City::City(string city_name, string country, double population, double latitude) {
+City::City(string city_name, string country, int population, double latitude) {
     //constructor for the class City
     this->city_name = city_name;
     this->country = country;
@@ -16,10 +16,29 @@ City::City(string city_name, string country, double population, double latitude)
 }
 
 void City::match_city(string& country_pref, int pop_pref, int lat_pref) {
-    // if (country_pref == country) {
-    //     match_city+=0.5;
-    // }
-    // if (pop_pref == 1 && population==) {}
+    if (country_pref == country) {
+        city_match+=0.5;
+    }
+
+    //values for the pop bin cutoffs were gathered from the data set by sorting the population values into equally
+    //sized bins, thus the city size is relative to the other cities in the data set
+    if (pop_pref == 1 && population<=11073) {
+        city_match+=0.25;
+    }
+    else if (pop_pref == 2 && 11073<population && population<=16421) {
+        city_match+=0.25;
+    }
+    else if (pop_pref == 3 && 16421<population && population<=27115) {
+        city_match+=0.25;
+    }
+    else if (pop_pref == 4 && 27115<population && population<=60212) {
+        city_match+=0.25;
+    }
+    else if (pop_pref == 5 && 60212<population && population<=3.7732e+07) {
+        city_match+=0.25;
+    }
+
+    //need to add the formula for adding in the latitude
 }
 
 float City::get_city_match() {
@@ -61,14 +80,17 @@ vector<City> City::getInfo(const string& filename) {
 
         double population, latitude = 0.0;
 
+        //population string saved to City object after: quotes trimmed, converted to int
         stringstream populationDouble(string_population);
-        cout<<"City Name:"<<city_name<<endl;
-        //cout<<"Population, from inside object initializer (string): "<<string_population<<endl;
         string_population = string_population.substr(1,string_population.length()-2);
-        population = stod(string_population);
-        cout<<"Population, from inside object initializer: "<<population<<endl;
-        //populationDouble>>population;
+        if (string_population=="") {
+            population = 0.0;
+        }
+        else {
+            population = stoi(string_population);
+        }
 
+        //please implement a similar fix to the latitude values to clean the strings
         stringstream latitudeDouble(latitude_str);
         latitudeDouble>>latitude;
 
