@@ -6,8 +6,6 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(src main.cpp
         City.h
         City.cpp
-        Parser.cpp
-        Parser.h
         MaxHeap.cpp
         MaxHeap.h
         MinHeap.cpp
