@@ -1,3 +1,0 @@
-C:/Users/hegde/CLionProjects/City_Selector/resources/src/cmake-build-debug/CMakeFiles/src.dir
-C:/Users/hegde/CLionProjects/City_Selector/resources/src/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/hegde/CLionProjects/City_Selector/resources/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
