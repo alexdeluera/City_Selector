@@ -9,3 +9,8 @@
 cmake-build-debug/*
 .cmake/*
 *.json
+*.txt
+*.yml
+*.iml
+*.xml
+/resources/src/cmake-build-debug/
