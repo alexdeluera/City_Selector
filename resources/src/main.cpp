@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include "City.h"
+#include "MaxHeap.h"
 using namespace std;
 int main() {
 
@@ -59,16 +60,18 @@ int main() {
     cout<<quarter_match<<endl;
     cout<<japan_match<<endl;
 
+    MaxHeap maxheap(cities);
+
     // //quick run to get the benchmark values for the 5 population bins to be used in city match calculation
     // sort(cities.begin(), cities.end(), [](City& a, City& b) {
     //     return a.get_pop() < b.get_pop();
     // });
-    // size_t n = cities.size();
-    // size_t bin_size = n/5;
-    //
-    // double bin1_cutoff = cities[bin_size - 1].get_pop();
-    // cout << "Bin 1 (smallest population) cutoff: " << bin1_cutoff << endl;
-    //
+    size_t n = cities.size();
+    size_t bin_size = n/5;
+
+    double bin1_cutoff = cities[bin_size - 1].get_pop();
+    cout << "Bin 1 (smallest population) cutoff: " << bin1_cutoff << endl;
+
     // double bin2_cutoff = cities[2 * bin_size - 1].get_pop();
     // cout << "Bin 2 cutoff: " << bin2_cutoff << endl;
     //

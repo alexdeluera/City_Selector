@@ -11,13 +11,13 @@
 using namespace std;
 
 class MaxHeap {
-//     vector<pair<int, City>> heap;
-//     void calc_match(vector<City>& cities);
-//     void heapify();
-//
-// public:
-//     MaxHeap();
-//     MaxHeap(vector<City>& cities);
+    vector<pair<int, City>> heap;
+    void heapify_up(int position);
+    void heapify_down(int position);
+
+public:
+    MaxHeap();
+    MaxHeap(vector<City>& cities);
 };
 
 
