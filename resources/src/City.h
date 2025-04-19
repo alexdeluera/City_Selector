@@ -17,6 +17,7 @@ public:
     void match_city(string& country_pref, int pop_pref, int lat_pref);
     float get_city_match();
     double get_pop();
+    string get_country();
     static vector <City> getInfo(const string& filename); //needed for viewing data to find bounds on pop and lat bins
     static vector <City> getInfo(const string& filename, string& country_pref, int pop_pref, int lat_pref);
     double get_latitude();

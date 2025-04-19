@@ -17,7 +17,7 @@ City::City(string city_name, string country, int population, double latitude) {
 
 void City::match_city(string& country_pref, int pop_pref, int lat_pref) {
     if (country_pref == country) {
-        city_match+=0.5;
+        city_match+=1;
     }
 
     //values for the pop bin cutoffs were gathered from the data set by sorting the population values into equally
@@ -38,7 +38,22 @@ void City::match_city(string& country_pref, int pop_pref, int lat_pref) {
         city_match+=0.25;
     }
 
-    //need to add the formula for adding in the latitude
+    //formula for adding in the latitude (weather) match
+    if (lat_pref == 1 && latitude<=15) {
+        city_match+=0.25;
+    }
+    else if (lat_pref == 2 && 15<latitude && latitude<=30) {
+        city_match+=0.25;
+    }
+    else if (lat_pref == 3 && 30<latitude && latitude<=45) {
+        city_match+=0.25;
+    }
+    else if (lat_pref == 4 && 45<latitude && latitude<=60) {
+        city_match+=0.25;
+    }
+    else if (lat_pref == 5 && 60<latitude && latitude<=75) {
+        city_match+=0.25;
+    }
 }
 
 float City::get_city_match() {
@@ -55,6 +70,10 @@ double City::get_latitude() {
 
 string City::get_city_name() {
     return this->city_name;
+}
+
+string City::get_country() {
+    return this->country;
 }
 
 vector<City> City::getInfo(const string& filename) {
@@ -86,13 +105,17 @@ vector<City> City::getInfo(const string& filename) {
             continue;
         }
 
-        double population, latitude = 0.0;
+        int population=0;
+        double latitude = 0.0;
+
+        city_name = city_name.substr(1, city_name.size()-2);
+        country = country.substr(1, country.size()-2);
 
         //population string saved to City object after: quotes trimmed, converted to int
         stringstream populationDouble(string_population);
         string_population = string_population.substr(1,string_population.length()-2);
         if (string_population=="") {
-            population = 0.0;
+            population = 0;
         }
         else {
             population = stoi(string_population);
@@ -102,9 +125,6 @@ vector<City> City::getInfo(const string& filename) {
         stringstream latitudeDouble(latitude_str);
         latitude_str = latitude_str.substr(1,latitude_str.length()-2);
         latitude = abs(stod(latitude_str));
-
-
-             //city_info.match_city(country_pref, pop_pref, lat_pref);
 
         city_info.emplace_back(city_name, country, population, latitude);
 
@@ -142,17 +162,32 @@ vector<City> City::getInfo(const string& filename, string& country_pref, int pop
             continue;
         }
 
-        double population, latitude = 0.0;
+        int population=0;
+        double latitude = 0.0;
 
+        city_name = city_name.substr(1, city_name.size()-2);
+        country = country.substr(1, country.size()-2);
+
+        //population string saved to City object after: quotes trimmed, converted to int
         stringstream populationDouble(string_population);
-        populationDouble>>population;
+        string_population = string_population.substr(1,string_population.length()-2);
+        if (string_population=="") {
+            population = 0;
+        }
+        else {
+            population = stoi(string_population);
+        }
 
+        //a similar fix to the latitude values to clean the strings
         stringstream latitudeDouble(latitude_str);
-        latitudeDouble>>latitude;
+        latitude_str = latitude_str.substr(1,latitude_str.length()-2);
+        latitude = abs(stod(latitude_str));
 
-        //city_info.match_city(country_pref, pop_pref, lat_pref);
+        City this_city(city_name, country, population, latitude);
 
-        city_info.emplace_back(city_name, country, population, latitude);
+        this_city.match_city(country_pref, pop_pref, lat_pref);
+
+        city_info.emplace_back(this_city);
 
     }
     return city_info;
