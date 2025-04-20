@@ -100,3 +100,14 @@ void MaxHeap::top_5_cities() {
         cout<<i+1<<". "<<temp.get_city_name()<<endl;
     }
 }
+
+string MaxHeap::top_5_str() {
+    string result = "Top 5 Cities: \n";
+
+    for (int i=0; i<5; i++) {
+        City temp = extract_max();
+        string temp_str = to_string(i+1)+". "+temp.get_city_name()+"\n";
+        result+=temp_str;
+    }
+    return result;
+}

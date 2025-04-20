@@ -21,8 +21,6 @@ public:
 
     City extract_max();
     void top_5_cities();
+    string top_5_str();
 };
-
-
-
 #endif //MAXHEAP_H

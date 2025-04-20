@@ -6,17 +6,17 @@
 using namespace std;
 int main() {
 
-    //getting user input for choice of country
-    string country;
-    cout<<"Enter country of choice"<<endl;
-    getline(cin, country);
-
     //getting user input for choice of city
     // string city_name;
     // if(!country.empty()) {
     //     cout<<"Enter preferable city in chosen country"<<endl;
     //     getline(cin, city_name);
     // }
+
+    //getting user input for choice of country
+    string country;
+    cout<<"Enter country of choice"<<endl;
+    getline(cin, country);
 
     //getting user input for population preference
     int population_preference;
@@ -28,51 +28,10 @@ int main() {
     cout<<"Enter weather preference from scale of 1-5: 1 being coldest and 5 being warmest"<<endl;
     cin>>weather_preference;
 
-    vector<City> cities = City::getInfo("../../../worldcities.csv", country, population_preference, weather_preference);
-
-    //vector<City> cities = City::getInfo("../../../worldcities.csv");
-
-    // cout<<endl << cities[0].get_latitude()<<endl;
-    // cout<<cities[0].get_city_name()<<endl;
-    // cout<<cities[0].get_pop()<<endl;
-    // cout<<cities[0].get_city_match()<<endl;
-    //
-    // int full_match=0;
-    // int half_match=0;
-    // int quarter_match=0;
-    // int japan_match=0;
-    // for (auto& each:cities) {
-    //     if (each.get_country() == "Japan") {
-    //         japan_match++;
-    //     }
-    //     if (each.get_city_match()==1.5) {
-    //         full_match++;
-    //     }
-    //     else if (each.get_city_match()==0.5) {
-    //         half_match++;
-    //     }
-    //     else if (each.get_city_match()==0.25) {
-    //         quarter_match++;
-    //     }
-    // }
-    // cout<<full_match<<endl;
-    // cout<<half_match<<endl;
-    // cout<<quarter_match<<endl;
-    // cout<<japan_match<<endl;
+    vector<City> cities = City::getInfo("../worldcities.csv", country, population_preference, weather_preference);
 
     MaxHeap maxheap(cities);
     maxheap.top_5_cities();
-
-    // City first = maxheap.extract_max();
-    // City second = maxheap.extract_max();
-    //
-    // cout<<"City Name: "<<first.get_city_name()<<endl;
-    // cout<<"Country: "<<first.get_city_match()<<endl;
-    // cout<<"Population: "<<first.get_pop()<<endl;
-    //
-    // cout<<"City Name: "<<second.get_city_name()<<endl;
-    // cout<<"Country: "<<second.get_city_match()<<endl;
-    // cout<<"Population: "<<second.get_pop()<<endl;
 
     return 0;
 }
