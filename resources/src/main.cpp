@@ -1,9 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <chrono>
 #include <algorithm>
 #include "City.h"
 #include "MaxHeap.h"
 using namespace std;
+using namespace std::chrono;
 int main() {
 
     //getting user input for choice of country
@@ -54,9 +56,14 @@ int main() {
     // cout<<quarter_match<<endl;
     // cout<<japan_match<<endl;
 
+    auto start_timer_maxHeap = high_resolution_clock::now();
+
     MaxHeap maxheap(cities);
     maxheap.top_5_cities();
+    auto end_timer_maxHeap = high_resolution_clock::now();
 
+    auto maxHeap_runtime = duration_cast<milliseconds>(end_timer_maxHeap - start_timer_maxHeap);
+    cout<<"MaxHeap execution time:"<< maxHeap_runtime.count()<< " milliseconds"<<endl;
     // City first = maxheap.extract_max();
     // City second = maxheap.extract_max();
     //
