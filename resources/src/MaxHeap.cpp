@@ -77,3 +77,26 @@ void MaxHeap::heapify_down(int position) {
     }
 }
 
+City MaxHeap::extract_max() {
+    City result = heap.at(0).second;
+
+    // cout<<"from maxextract: "<<endl;
+    // cout << heap.at(0).second.get_city_name() << endl;
+    // cout<<heap.at(heap.size()-1).second.get_city_name()<<endl;
+
+    heap.at(0).first = heap.at(heap.size()-1).first;
+    heap.at(0).second = heap.at(heap.size() - 1).second;
+
+    heap.pop_back();
+    heapify_down(0);
+
+    return result;
+}
+
+void MaxHeap::top_5_cities() {
+    cout<<"Top 5 Cities: "<<endl;
+    for (int i=0; i<5; i++) {
+        City temp = extract_max();
+        cout<<i+1<<". "<<temp.get_city_name()<<endl;
+    }
+}

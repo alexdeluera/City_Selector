@@ -32,60 +32,47 @@ int main() {
 
     //vector<City> cities = City::getInfo("../../../worldcities.csv");
 
-    cout<<endl << cities[0].get_latitude()<<endl;
-    cout<<cities[0].get_city_name()<<endl;
-    cout<<cities[0].get_pop()<<endl;
-    cout<<cities[0].get_city_match()<<endl;
-
-    int full_match=0;
-    int half_match=0;
-    int quarter_match=0;
-    int japan_match=0;
-    for (auto& each:cities) {
-        if (each.get_country() == "Japan") {
-            japan_match++;
-        }
-        if (each.get_city_match()==1.5) {
-            full_match++;
-        }
-        else if (each.get_city_match()==0.5) {
-            half_match++;
-        }
-        else if (each.get_city_match()==0.25) {
-            quarter_match++;
-        }
-    }
-    cout<<full_match<<endl;
-    cout<<half_match<<endl;
-    cout<<quarter_match<<endl;
-    cout<<japan_match<<endl;
+    // cout<<endl << cities[0].get_latitude()<<endl;
+    // cout<<cities[0].get_city_name()<<endl;
+    // cout<<cities[0].get_pop()<<endl;
+    // cout<<cities[0].get_city_match()<<endl;
+    //
+    // int full_match=0;
+    // int half_match=0;
+    // int quarter_match=0;
+    // int japan_match=0;
+    // for (auto& each:cities) {
+    //     if (each.get_country() == "Japan") {
+    //         japan_match++;
+    //     }
+    //     if (each.get_city_match()==1.5) {
+    //         full_match++;
+    //     }
+    //     else if (each.get_city_match()==0.5) {
+    //         half_match++;
+    //     }
+    //     else if (each.get_city_match()==0.25) {
+    //         quarter_match++;
+    //     }
+    // }
+    // cout<<full_match<<endl;
+    // cout<<half_match<<endl;
+    // cout<<quarter_match<<endl;
+    // cout<<japan_match<<endl;
 
     MaxHeap maxheap(cities);
+    maxheap.top_5_cities();
 
-    // //quick run to get the benchmark values for the 5 population bins to be used in city match calculation
-    // sort(cities.begin(), cities.end(), [](City& a, City& b) {
-    //     return a.get_pop() < b.get_pop();
-    // });
-    size_t n = cities.size();
-    size_t bin_size = n/5;
-
-    double bin1_cutoff = cities[bin_size - 1].get_pop();
-    cout << "Bin 1 (smallest population) cutoff: " << bin1_cutoff << endl;
-
-    // double bin2_cutoff = cities[2 * bin_size - 1].get_pop();
-    // cout << "Bin 2 cutoff: " << bin2_cutoff << endl;
+    // City first = maxheap.extract_max();
+    // City second = maxheap.extract_max();
     //
-    // double bin3_cutoff = cities[3 * bin_size - 1].get_pop();
-    // cout << "Bin 3 cutoff: " << bin3_cutoff << endl;
+    // cout<<"City Name: "<<first.get_city_name()<<endl;
+    // cout<<"Country: "<<first.get_city_match()<<endl;
+    // cout<<"Population: "<<first.get_pop()<<endl;
     //
-    // double bin4_cutoff = cities[4 * bin_size - 1].get_pop();
-    // cout << "Bin 4 cutoff: " << bin4_cutoff << endl;
-    //
-    // // Bin 5: Cutoff at the largest population
-    // double bin5_cutoff = cities[n - 1].get_pop();
-    // cout << "Bin 5 (largest population) cutoff: " << bin5_cutoff << endl;
-    //
-    // cout<<"Bin Size: "<<bin_size<<endl;
+    // cout<<"City Name: "<<second.get_city_name()<<endl;
+    // cout<<"Country: "<<second.get_city_match()<<endl;
+    // cout<<"Population: "<<second.get_pop()<<endl;
 
     return 0;
 }

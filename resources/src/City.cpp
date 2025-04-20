@@ -165,7 +165,7 @@ vector<City> City::getInfo(const string& filename, string& country_pref, int pop
         int population=0;
         double latitude = 0.0;
 
-        city_name = city_name.substr(1, city_name.size()-2);
+        ascii_city = ascii_city.substr(1, ascii_city.size()-2);
         country = country.substr(1, country.size()-2);
 
         //population string saved to City object after: quotes trimmed, converted to int
@@ -183,7 +183,7 @@ vector<City> City::getInfo(const string& filename, string& country_pref, int pop
         latitude_str = latitude_str.substr(1,latitude_str.length()-2);
         latitude = abs(stod(latitude_str));
 
-        City this_city(city_name, country, population, latitude);
+        City this_city(ascii_city, country, population, latitude);
 
         this_city.match_city(country_pref, pop_pref, lat_pref);
 

@@ -18,6 +18,9 @@ class MaxHeap {
 public:
     MaxHeap();
     MaxHeap(vector<City>& cities);
+
+    City extract_max();
+    void top_5_cities();
 };
 
 
