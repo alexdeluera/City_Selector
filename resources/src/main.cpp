@@ -4,6 +4,7 @@
 #include <iomanip>
 #include "City.h"
 #include "MaxHeap.h"
+#include "MinHeap.h"
 using namespace std;
 using namespace std::chrono;
 int main() {
@@ -66,6 +67,7 @@ int main() {
     // cout<<quarter_match<<endl;
     // cout<<japan_match<<endl;
     cout<<"Here are your suggested cities "<<user_name<<": "<<endl;
+    cout<<"---------------------MaxHeap Implementation results------------------------"<<": "<<endl;
     auto start_timer_maxHeap = high_resolution_clock::now();
 
     MaxHeap maxheap(cities);
@@ -76,6 +78,18 @@ int main() {
     double maxHeap_run = static_cast<double> (maxHeap_runtime.count());
 
     cout<<"MaxHeap execution time: "<< fixed<<setprecision(3)<<maxHeap_run<< " milliseconds"<<endl;
+
+
+    cout<<endl<<"---------------------MinHeap Implementation results------------------------"<<": "<<endl;
+    auto start_timer_minHeap = high_resolution_clock::now();
+    MinHeap minHeap(cities);
+    minHeap.top_5_cities();
+    auto end_timer_minHeap = high_resolution_clock::now();
+
+    auto minHeap_runtime = duration_cast<duration<double, milli>>(end_timer_minHeap - start_timer_minHeap);
+    double minHeap_run = static_cast<double> (minHeap_runtime.count());
+
+    cout<<"MinHeap execution time: "<< fixed<<setprecision(3)<<minHeap_run<< " milliseconds"<<endl <<endl;
     // City first = maxheap.extract_max();
     // City second = maxheap.extract_max();
     //

@@ -58,14 +58,13 @@ City MinHeap::extract_min() {
 }
 
 void MinHeap::top_5_cities() {
-    cout << "minheap size " <<minHeap.size() <<endl;
-
-    string cityName[5];
+string cityName[5];
     for (int i=4; i>=0; i--) {
         cityName[i] = extract_min().get_city_name();
 
     }
     int i = 0;
+    cout<<"Top 5 Cities: "<<endl;
     for(const auto& el : cityName){
         cout<<i+1<<". "<< el << endl;
         i++;
