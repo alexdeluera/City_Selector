@@ -62,7 +62,7 @@ int main() {
     maxheap.top_5_cities();
     auto end_timer_maxHeap = high_resolution_clock::now();
 
-    auto maxHeap_runtime = duration_cast<milliseconds>(end_timer_maxHeap - start_timer_maxHeap);
+    auto maxHeap_runtime = duration_cast<duration<double, milli>>(end_timer_maxHeap - start_timer_maxHeap);
     double maxHeap_run = static_cast<double> (maxHeap_runtime.count());
 
     cout<<"MaxHeap execution time: "<< fixed<<setprecision(3)<<maxHeap_run<< " milliseconds"<<endl;
