@@ -75,7 +75,7 @@ int main() {
     auto end_timer_maxHeap = high_resolution_clock::now();
 
     auto maxHeap_runtime = duration_cast<duration<double, milli>>(end_timer_maxHeap - start_timer_maxHeap);
-    double maxHeap_run = static_cast<double> (maxHeap_runtime.count());
+    double maxHeap_run = maxHeap_runtime.count();
 
     cout<<"MaxHeap execution time: "<< fixed<<setprecision(3)<<maxHeap_run<< " milliseconds"<<endl;
 
@@ -87,7 +87,7 @@ int main() {
     auto end_timer_minHeap = high_resolution_clock::now();
 
     auto minHeap_runtime = duration_cast<duration<double, milli>>(end_timer_minHeap - start_timer_minHeap);
-    double minHeap_run = static_cast<double> (minHeap_runtime.count());
+    double minHeap_run = minHeap_runtime.count();
 
     cout<<"MinHeap execution time: "<< fixed<<setprecision(3)<<minHeap_run<< " milliseconds"<<endl <<endl;
     // City first = maxheap.extract_max();
