@@ -7,6 +7,8 @@
 using namespace std;
 using namespace std::chrono;
 int main() {
+    //welcome message
+    cout<<"Welcome to City Selector! Find your ideal city here!"<<endl;
     //getting user name
     string user_name;
     cout<<"Enter name: "<<endl;
@@ -84,6 +86,9 @@ int main() {
     // cout<<"City Name: "<<second.get_city_name()<<endl;
     // cout<<"Country: "<<second.get_city_match()<<endl;
     // cout<<"Population: "<<second.get_pop()<<endl;
+
+    //thank you message
+    cout<<"Thank you for using City Selector! Have a great day!"<<endl;
 
     return 0;
 }
