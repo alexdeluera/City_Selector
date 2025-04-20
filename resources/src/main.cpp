@@ -11,12 +11,6 @@ int main() {
     cout<<"Enter country of choice"<<endl;
     getline(cin, country);
 
-    //getting user input for choice of city
-    // string city_name;
-    // if(!country.empty()) {
-    //     cout<<"Enter preferable city in chosen country"<<endl;
-    //     getline(cin, city_name);
-    // }
 
     //getting user input for population preference
     int population_preference;
