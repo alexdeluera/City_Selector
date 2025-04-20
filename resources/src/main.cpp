@@ -7,22 +7,30 @@
 using namespace std;
 using namespace std::chrono;
 int main() {
+    //getting user name
+    string user_name;
+    cout<<"Enter name: "<<endl;
+    getline(cin, user_name);
+    cout<<endl;
 
     //getting user input for choice of country
     string country;
-    cout<<"Enter country of choice"<<endl;
+    cout<<"Enter country of choice: "<<endl;
     getline(cin, country);
+    cout<<endl;
 
 
     //getting user input for population preference
     int population_preference;
-    cout<<"Enter population preference from a scale of 1-5: 1 being least populous and 5 being most populous"<<endl;
+    cout<<"Enter population preference from a scale of 1-5: 1 being least populous and 5 being most populous: "<<endl;
     cin>>population_preference;
+    cout<<endl;
 
     //getting user input for weather preference
     int weather_preference;
-    cout<<"Enter weather preference from scale of 1-5: 1 being coldest and 5 being warmest"<<endl;
+    cout<<"Enter weather preference from scale of 1-5: 1 being coldest and 5 being warmest: "<<endl;
     cin>>weather_preference;
+    cout<<endl;
 
     vector<City> cities = City::getInfo("../../../worldcities.csv", country, population_preference, weather_preference);
 
@@ -55,7 +63,7 @@ int main() {
     // cout<<half_match<<endl;
     // cout<<quarter_match<<endl;
     // cout<<japan_match<<endl;
-
+    cout<<"Here are your suggested cities "<<user_name<<": "<<endl;
     auto start_timer_maxHeap = high_resolution_clock::now();
 
     MaxHeap maxheap(cities);
