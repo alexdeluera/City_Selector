@@ -1,5 +1,6 @@
 #include "MinHeap.h"
 #include <iostream>
+#include <sstream>
 
 MinHeap::MinHeap(vector<City>& cities) {
     this->minHeap = {};
@@ -69,4 +70,21 @@ string cityName[5];
         cout<<i+1<<". "<< el << endl;
         i++;
     }
+}
+
+string MinHeap::top_5_str() {
+    string cityName[5];
+
+    for (int i = 4; i >= 0; i--) {
+        cityName[i] = extract_min().get_city_name();
+    }
+
+    std::stringstream result;
+    result << "Top 5 Cities:\n";
+    
+    for (int i = 0; i < 5; ++i) {
+        result << i + 1 << ". " << cityName[i] << "\n";
+    }
+
+    return result.str();
 }

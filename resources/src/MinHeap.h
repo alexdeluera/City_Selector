@@ -21,6 +21,7 @@ public:
 
     City extract_min();
     void top_5_cities();
+    string top_5_str();
 };
 
 
