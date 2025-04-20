@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
-#include <algorithm>
 #include <iomanip>
 #include "City.h"
 #include "MaxHeap.h"
