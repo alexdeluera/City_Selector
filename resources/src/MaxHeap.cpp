@@ -102,7 +102,7 @@ void MaxHeap::top_5_cities() {
 }
 
 string MaxHeap::top_5_str() {
-    string result = "Top 5 Cities: \n";
+    string result = "Top 5 Cities, from MaxHeap: \n";
 
     for (int i=0; i<5; i++) {
         City temp = extract_max();

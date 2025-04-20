@@ -80,8 +80,8 @@ string MinHeap::top_5_str() {
     }
 
     std::stringstream result;
-    result << "Top 5 Cities:\n";
-    
+    result << "Top 5 Cities, from MinHeap:\n";
+
     for (int i = 0; i < 5; ++i) {
         result << i + 1 << ". " << cityName[i] << "\n";
     }
