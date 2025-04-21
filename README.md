@@ -7,13 +7,13 @@ your preferred city size and climate. The values are scaled to reflect the data 
 represent the top 20% most populous cities and the coordinates furthest from the equator, between latitudinal coordinates 
 60 and 75. The breakdown of what each integer input represents is shown in the table below.
 
-| Integer | Population<br/>(in percentile) | Weather <br/>(as absolute latitude) |
-|---------|--------------------------------|-------------------------------------|
-| 1       | 0-20                           | 1-15                                |
-| 2       | 21-40                          | 16-30                               |
-| 3       | 41-60                          | 31-45                               |
-| 4       | 61-80                          | 46-60                               |
-| 5       | 81-100                         | 61-75                               |
+| Input <br/>(integer) | Population<br/>(percentile) | Weather <br/>(absolute latitude) |
+|-----------------------------|-----------------------------|----------------------------------|
+| 1                           | 0-20                        | 1-15                             |
+| 2                           | 21-40                       | 16-30                            |
+| 3                           | 41-60                       | 31-45                            |
+| 4                           | 61-80                       | 46-60                            |
+| 5                           | 81-100                      | 61-75                            |
 
 Note that weather is approximated as the absolute value of the latitudinal coordinate. Thus, regions near the North or 
 South Pole are evaluated to be similarly cold and values in the tropics are estimated to be equally hot.
